@@ -1,0 +1,30 @@
+name: GitHub Action For Sonarqube
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout source code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
+    - name: Install dependencies
+      run: yarm install
+    - name: Gather Test Coverage
+      run: yarn test-coverage
+    - name: SonarQube Scan
+      run: sonar-scanner
+       -Dsonar.host.url=https://sonarqube.treeleaf.ai
+       -Dsonar.login=5cd846f852d9535c3169ba3ea2ced57a62322935
+       -Dsonar.projectKey=my-app-test
+       -Dsonar.sources=.
