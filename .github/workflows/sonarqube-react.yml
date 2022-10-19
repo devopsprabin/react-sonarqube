@@ -21,8 +21,8 @@ jobs:
     - name: Install dependencies
       run: yarn install
     - name: SonarQube Scan
-      run: sonar-scanner
-       -Dsonar.host.url=https://sonarqube.treeleaf.ai
-       -Dsonar.login=5cd846f852d9535c3169ba3ea2ced57a62322935
-       -Dsonar.projectKey=my-app-test
-       -Dsonar.sources=.
+      run: sonar-scanner \
+        -Dsonar.projectKey=my-app-test \
+        -Dsonar.sources=. \
+        -Dsonar.host.url=https://sonarqube.treeleaf.ai \
+        -Dsonar.login=5cd846f852d9535c3169ba3ea2ced57a62322935
