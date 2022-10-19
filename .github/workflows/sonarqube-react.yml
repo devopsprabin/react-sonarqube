@@ -10,6 +10,8 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
+    - name: Setup sonar scanner
+      uses: warchant/setup-sonar-scanner@v1
     - name: Checkout source code
       uses: actions/checkout@v2
       with:
