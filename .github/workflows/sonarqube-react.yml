@@ -19,7 +19,7 @@ jobs:
       with:
         node-version: 12
     - name: Install dependencies
-      run: yarm install
+      run: yarn install
     - name: Gather Test Coverage
       run: yarn test-coverage
     - name: SonarQube Scan
