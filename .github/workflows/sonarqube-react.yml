@@ -20,8 +20,6 @@ jobs:
         node-version: 16
     - name: Install dependencies
       run: yarn install
-    - name: Gather Test Coverage
-      run: yarn test-coverage
     - name: SonarQube Scan
       run: sonar-scanner
        -Dsonar.host.url=https://sonarqube.treeleaf.ai
