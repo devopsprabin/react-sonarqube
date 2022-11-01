@@ -1,30 +1,30 @@
-# name: GitHub Action For Sonarqube
+name: GitHub Action For Sonarqube
 
-# on:
-#   push:
-#     branches: [ "main" ]
-#   pull_request:
-#     branches: [ "main" ]
-# jobs:
-#   build:
-#     name: Build
-#     runs-on: ubuntu-latest
-#     steps:
-#     - name: Checkout source code
-#       uses: actions/checkout@v2
-#       with:
-#         fetch-depth: 0
-#     - name: Setup Node.js
-#       uses: actions/setup-node@v1
-#       with:
-#         node-version: 16
-#     - name: Install dependencies
-#       run: yarn install
-#     - name: SonarQube Scan
-#       uses: sonarsource/sonarqube-scan-action@master
-#       env:
-#         SONAR_TOKEN: https://sonarqube.treeleaf.ai
-#         SONAR_HOST_URL: 5cd846f852d9535c3169ba3ea2ced57a62322935
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout source code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 16
+    - name: Install dependencies
+      run: yarn install
+    - name: SonarQube Scan
+      uses: sonarsource/sonarqube-scan-action@master
+      env:
+        SONAR_TOKEN: 5cd846f852d9535c3169ba3ea2ced57a62322935
+        SONAR_HOST_URL: https://sonarqube.treeleaf.ai
 #     - name: SonarQube Scan
 #       uses: sonarsource/sonarqube-scan-action@v1
 #     - name: SonarQube Scan
@@ -33,24 +33,24 @@
 #         -Dsonar.sources=. \
 #         -Dsonar.host.url=https://sonarqube.treeleaf.ai \
 #         -Dsonar.login=5cd846f852d9535c3169ba3ea2ced57a62322935
-on:
-  # Trigger analysis when pushing in master or pull requests, and when creating
-  # a pull request. 
-  push:
-    branches:
-      - main
+# on:
+#   # Trigger analysis when pushing in master or pull requests, and when creating
+#   # a pull request. 
+#   push:
+#     branches:
+#       - main
 
-name: Main Workflow
-jobs:
-  sonarqube:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        # Disabling shallow clone is recommended for improving relevancy of reporting
-        fetch-depth: 0
-    - name: SonarQube Scan
-      uses: sonarsource/sonarqube-scan-action@master
-      env:
-        SONAR_TOKEN: 5cd846f852d9535c3169ba3ea2ced57a62322935
-        SONAR_HOST_URL: https://sonarqube.treeleaf.ai
+# name: Main Workflow
+# jobs:
+#   sonarqube:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - uses: actions/checkout@v2
+#       with:
+#         # Disabling shallow clone is recommended for improving relevancy of reporting
+#         fetch-depth: 0
+#     - name: SonarQube Scan
+#       uses: sonarsource/sonarqube-scan-action@master
+#       env:
+#         SONAR_TOKEN: 5cd846f852d9535c3169ba3ea2ced57a62322935
+#         SONAR_HOST_URL: https://sonarqube.treeleaf.ai
