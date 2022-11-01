@@ -52,5 +52,5 @@ jobs:
     - name: SonarQube Scan
       uses: sonarsource/sonarqube-scan-action@master
       env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        SONAR_TOKEN: 5cd846f852d9535c3169ba3ea2ced57a62322935
+        SONAR_HOST_URL: https://sonarqube.treeleaf.ai
